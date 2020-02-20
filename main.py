@@ -21,7 +21,5 @@ def sort_book_ids(books, scores):
     scores_for_lib = []
     for book in books:
         scores_for_lib.append(scores[book])
-    return [x for y,x in sorted(zip(scores_for_lib, books))]
+    return ([x for y,x in sorted(zip(scores_for_lib, books))], [y for y,x in sorted(zip(scores_for_lib, books))])
 
-
-    

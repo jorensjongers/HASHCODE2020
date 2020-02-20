@@ -1,7 +1,9 @@
 
-import hashcode_main as m
+import main as m
+FILE_NAME = "b_lovely_landscapes.txt"
+OUTPUT_FILE = "submission_landscape.txt"
 
-f = open("b_lovely_landscapes.txt", "r")
+f = open(FILE_NAME, "r")
 H = []
 V = []
 
@@ -9,42 +11,8 @@ def parse_input(file):
     list = [line.split(' ') for line in file.read().split('\n')]
     return list
 
-
-def getNumber(list):
-    number = int((list.pop(0))[0])
-    return number
-
-
-def sortLists(list):
-    for i in range(0,len(list)-1): # je mag niet meer als 1 keer dit doen
-        tup = [i] + list[i]
-        tup[2] = int(float(tup[2]))
-        if list[i][0] == 'H':
-            H.append(tup)
-        elif list[i][0] == 'V':
-            V.append(tup)
-
-
-#
-# def getHorizontalPhotos():
-#     return H
-#
-#
-# def getVerticalPhotos():
-#     return V
-#
-#
-# def getNumberOfPhotos():
-#     return n
-
-
-
-
-
-#--------------------------------------
-
 def output(slideshow):
-    submission= open("submission_landscape.txt","w+")
+    submission= open(OUTPUT_FILE,"w+")
     c = len(slideshow)
     submission.write("%d \n" % c)
     for i in range(0,c):
@@ -54,11 +22,5 @@ def output(slideshow):
             submission.write("%d" % slideshow[i][0][0])
             submission.write(" %d \n" % slideshow[i][0][1])
 
-
-l = parse_input(f)
-n = getNumber(l)
-sortLists(l)
-test =[[1,"a"],[[1,2],"b"]]
-V_assembled = m.assembleVerticals(V)
-final_show = m.create_slideshows(H+V_assembled)
-output(final_show)
+final = ""
+output(final)

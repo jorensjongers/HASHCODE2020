@@ -1,6 +1,5 @@
 def parse_input(file):
     list = [line.split(' ') for line in file.read().split('\n')]
-    print(list)
     return list
 
 def get_nb_books(list):

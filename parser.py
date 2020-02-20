@@ -39,16 +39,17 @@ def get_libraries(lst):
 
 
 
-def output(output_file, slideshow):
+def output(libs ,output_file):
     # TODO aanpassen aan opgave, niet zo gebruiken!!!
-    submission= open(output_file,"w+")
-    c = len(slideshow)
-    submission.write("%d \n" % c)
-    for i in range(0,c):
-        if isinstance(slideshow[i][0] , int):
-            submission.write("%d \n" % slideshow[i][0])
-        else:
-            submission.write("%d" % slideshow[i][0][0])
-            submission.write(" %d \n" % slideshow[i][0][1])
+    submission = open(output_file,"w+")
+    submission.write("%d \n" % len(libs))
+    for i in range(0,len(libs)):
+        submission.write(str(libs[i]["lib_id"]) + " " + str(libs[i]["nb_books"]) + "\n")
+        for j in libs[i]["books"]:
+            submission.write(str(j) + " ")
+        submission.write("\n")
+    
+
+        
 
 

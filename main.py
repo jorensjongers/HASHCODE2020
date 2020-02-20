@@ -10,5 +10,5 @@ input = parser.parse_input(f)
 
 
 
-libs = parser.get_libraries(input)
-print(libs)
+libs = [{'lib_id' : 0, 'nb_books' : 2, 'books' : [2, 3]}, {'lib_id' : 1, 'nb_books' : 3, 'books' : [0,1, 3]}]
+parser.output(libs, OUTPUT_FILE)

@@ -3,6 +3,7 @@ def parse_input(file):
     return list
 
 def output(output_file, slideshow):
+    # TODO aanpassen aan opgave, niet zo gebruiken!!!
     submission= open(output_file,"w+")
     c = len(slideshow)
     submission.write("%d \n" % c)

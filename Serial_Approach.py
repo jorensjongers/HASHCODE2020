@@ -7,7 +7,6 @@ def libScore(daysForScanning, signupForLib, bookScores, nbBookinLib, booksPerDay
     while ((count >0) and  (nbBookinLib>0)):       
         count -= 1    
         for book in range(min(booksPerDay, nbBookinLib)):
-            #print(book)
             score += bookScores[nbBookinLib -1]
             nbBookinLib -= 1
             scannedbooks +=1
@@ -30,9 +29,6 @@ def optimalLibrary(daysForScanning, lstLibrary, AllBookScores):
         bookscore = sort_book_ids(lib.get("books"), AllBookScores)
         books = len(lib.get("books"))
         currentScore = libScore(daysForScanning, lib.get("signup_time"), bookscore[1], lib.get("nb_books"), lib.get("books_per_day"))
-        print(currentScore)
-        print(optScore)
-        print(optLib)
         if (currentScore[0] > optScore): ## opt
             optScore = currentScore[0]
             optLib = lib
@@ -43,8 +39,9 @@ def libraryOrder(libs, deadline, scores):
     libArray = []
 
     while (deadline > 0 and len(libs) > 0) : 
-        print("----while loop---")
         opt_lib,_ = optimalLibrary(deadline, libs, scores)
+        if opt_lib is None:
+            break
         libArray.append(opt_lib)
         libs.remove(opt_lib)
         deadline -= opt_lib.get("signup_time")

@@ -21,12 +21,13 @@ def sort_book_ids(books, scores):
 
 
 
-def optimalLibrary(daysForScanning, lstLibrary, AllBookScores):
+def optimalLibrary(daysForScanning, lstLibrary, AllBookScores, usedBooks):
     optScore= 0 
     optLib = None
     optOrderedBooks = []
     for lib in lstLibrary:
-        bookscore = sort_book_ids(lib.get("books"), AllBookScores)
+        books = [x for x in lib.get("books") if x not in usedBooks]
+        bookscore = sort_book_ids(books, AllBookScores)
         books = len(lib.get("books"))
         currentScore = libScore(daysForScanning, lib.get("signup_time"), bookscore[1], lib.get("nb_books"), lib.get("books_per_day"))
         if (currentScore[0] > optScore): ## opt

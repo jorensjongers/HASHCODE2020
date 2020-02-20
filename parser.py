@@ -29,7 +29,7 @@ def get_libraries(lst):
             new_book = int(book)
             books.append(new_book)
         lib = {}
-        lib["lib_id"] = id
+        lib["lib_id"] = id/2
         lib["nb_books"] = nb_books
         lib["signup_time"]=signup_time
         lib["books_per_day"]=books_per_day
